@@ -1,5 +1,5 @@
 import React from "react";
-import ExampleComponent from "../CustomerReview/CustomerReview";
+import Pictures from "../Picture/Picture";
 import Updates from "../Updates/Updates";
 import "./RightSide.css";
 
@@ -12,7 +12,7 @@ const RightSide = () => {
       </div>
       <div>
         
-        <ExampleComponent />
+        <Pictures />
       </div>
     </div>
   );
