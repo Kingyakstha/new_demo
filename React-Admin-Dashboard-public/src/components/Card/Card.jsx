@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Card.css";
-import { CircularProgressbar } from "react-circular-progressbar";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faEnvelope,faDoorClosed,faDoorOpen} from '@fortawesome/free-solid-svg-icons'
 import "react-circular-progressbar/dist/styles.css";
 import { motion, AnimateSharedLayout } from "framer-motion";
 import { UilTimes } from "@iconscout/react-unicons";
@@ -30,13 +31,13 @@ function CompactCard({ param, setExpanded }) {
 
 
 
-  const [dataa,setdataa]=useState("")
+  const [dataa,setdata]=useState("")
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fetch("http://192.168.11.102:5000/api");
+        const response = await fetch("http://192.168.11.102:4000/api");
         const data = await response.json();
-        console.log(data);
+        setdata(data)
       } catch (err) {
         if (!err.response) {
           console.log("No server response",err);
@@ -46,26 +47,22 @@ function CompactCard({ param, setExpanded }) {
       }
     };
   
-    setInterval(getData(),100);
+    const intervalId = setInterval(getData,500);
+
+  // Cleanup function to clear the interval
+  return () => clearInterval(intervalId);
   });
 
-  // useEffect(()=>{
-  //   axios.get('http://192.168.11.102:5000/api')
-  //   .then((response)=>{
-  //     setdata(response.data)
-  //     console.log(response)
-  //     console.log("the data is",dataa)
-  //   })
-  //   .catch((err)=>{
-  //     if (!err.response) {
-  //               console.log("No server response",err);
-  //             } else {
-  //               console.log("Failed");
-  //             }
-  //   })
-  // },[])
 
 
+  const [isRotating, setIsRotating] = useState(false); 
+  useEffect(() => {
+     // Start or stop rotation based on dataa.Fan value
+     setIsRotating(dataa.Fan);
+   }, [dataa.Fan]);
+
+
+ 
 
   return (
     <motion.div
@@ -78,16 +75,37 @@ function CompactCard({ param, setExpanded }) {
       onClick={setExpanded}
     >
       <div className="radialBar">
-        <Switch/>
+      <FontAwesomeIcon 
+  icon={param.title === "Door" && !dataa.Door ? faDoorClosed: param.icon1}
+  className={`svg-inline--fa ${param.title === "Fan" && isRotating ? "rotate" : ""} ${param.title === "Light_bulb" && dataa.Light_bulb ? "light-bulb-on" : "light-bulb-off"} ${param.title === "Light_bulb" && !dataa.Light_bulb ? "door-thing" : ""} ${param.title === "Fan"? "door-thing" : ""} ${param.title === "Door"? "door-thing" : ""}`}
+  style={{
+    fontSize: '75px', 
+  }}
+/>
+
+
+      <span>{param.title}</span>
       </div>
       <div className="detail">
         <Png />
-        <span>${dataa}</span>
-        <span>Last 24 hours</span>
+        <span>
+  {param.title === "Fan" ? (dataa.Fan ? "On" : "Off") : ""}
+  {param.title === "Door" ? (dataa.Door ? "On" : "Off") : ""}
+  {param.title === "Light_bulb" ? (dataa.Light_bulb ? "On" : "Off") : ""}
+</span>
+
+<span></span>
       </div>
     </motion.div>
+
+    
   );
 }
+
+
+
+
+
 
 // Expanded Card
 function ExpandedCard({ param, setExpanded }) {
@@ -128,16 +146,7 @@ function ExpandedCard({ param, setExpanded }) {
         show: true,
       },
       xaxis: {
-        type: "datetime",
-        categories: [
-          "2018-09-19T00:00:00.000Z",
-          "2018-09-19T01:30:00.000Z",
-          "2018-09-19T02:30:00.000Z",
-          "2018-09-19T03:30:00.000Z",
-          "2018-09-19T04:30:00.000Z",
-          "2018-09-19T05:30:00.000Z",
-          "2018-09-19T06:30:00.000Z",
-        ],
+          categories: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
       },
     },
   };
@@ -158,7 +167,7 @@ function ExpandedCard({ param, setExpanded }) {
       <div className="chartContainer">
         <Chart options={data.options} series={param.series} type="area" />
       </div>
-      <span>Last 24 hours</span>
+      <span>Last week</span>
     </motion.div>
   );
 }

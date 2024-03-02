@@ -12,6 +12,7 @@ const Cards = () => {
           <div className="parentContainer" key={id}>
             <Card
               title={card.title}
+              icon1={card.icon1}
               color={card.color}
               barValue={card.barValue}
               value={card.value}

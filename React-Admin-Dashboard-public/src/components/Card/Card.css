@@ -20,21 +20,35 @@
   justify-content: flex-end;
   gap: 1rem;
 }
-.CircularProgressbar {
-  width: 4rem !important;
-  overflow: visible;
+.icon {
+  font-size: 100px; /* Adjust the size as needed */
 }
-.CircularProgressbar-path {
-  stroke: white !important;
-  stroke-width: 12px !important;
-  filter: drop-shadow(2px 4px 6px white);
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
-.CircularProgressbar-trail {
-  display: none;
+
+.rotate {
+  animation: rotate 1s linear infinite; /* Adjust the duration and timing as needed */
 }
-.CircularProgressbar-text {
-  fill: white !important;
+
+.light-bulb-on {
+  color: yellow; /* Change the color as needed */
 }
+.light-bulb-off {
+  color: grey; /* Change the color as needed */
+}
+
+.door-thing {
+  color: black; /* Change the color as needed */
+}
+
+
 
 .radialBar > span {
   font-size: 17px;

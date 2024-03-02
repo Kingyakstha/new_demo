@@ -1,3 +1,5 @@
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faEnvelope,faDoorClosed,faDoorOpen,faLightbulb,faFan} from '@fortawesome/free-solid-svg-icons'
 // Sidebar imports
 import {
   UilEstate,
@@ -5,7 +7,12 @@ import {
   UilUsersAlt,
   UilPackage,
   UilChart,
-  UilSignOutAlt,
+
+  UilLock,
+
+  UilBrightnessLow,
+
+  UilWind,
 } from "@iconscout/react-unicons";
 
 // Analytics Cards imports
@@ -24,59 +31,55 @@ export const SidebarData = [
     heading: "Dashboard",
   },
   {
-    icon: UilClipboardAlt,
-    heading: "Orders",
-  },
-  {
-    icon: UilUsersAlt,
-    heading: "Customers",
-  },
-  {
-    icon: UilPackage,
-    heading: 'Products'
-  },
-  {
     icon: UilChart,
     heading: 'Analytics'
   },
 ];
 
 // Analytics Cards Data
-export const cardsData = [
-  {
-    title: "Sales",
-    color: {
-      backGround: "linear-gradient(180deg, #bb67ff 0%, #c484f3 100%)",
-      boxShadow: "0px 10px 20px 0px #e0c6f5",
-    },
-    barValue: 70,
-    value: "25,970",
-    png: UilUsdSquare,
-    series: [
-      {
-        name: "Sales",
-        data: [31, 40, 28, 51, 42, 109, 100],
-      },
-    ],
+export const cardsdata= {
+  title: "Light_bulb",
+  icon1:faLightbulb,
+  color: {
+    backGround: "linear-gradient(180deg, #FF919D 0%, #FC929D 100%)",
+    boxShadow: "0px 10px 20px 0px #FDC0C7",
   },
+  barValue: 80,
+  value: "14,270",
+  png: UilMoneyWithdrawal,
+  series: [
+    {
+      name: "Light_bulb",
+      data: [10, 100, 50, 70, 80, 30, 40],
+    },
+  ],
+};
+
+
+
+export const cardsData = [
+  
   {
-    title: "Revenue",
+    title: "Light_bulb",
+    icon1:faLightbulb,
     color: {
       backGround: "linear-gradient(180deg, #FF919D 0%, #FC929D 100%)",
       boxShadow: "0px 10px 20px 0px #FDC0C7",
     },
     barValue: 80,
     value: "14,270",
-    png: UilMoneyWithdrawal,
+    png: UilBrightnessLow,
     series: [
       {
-        name: "Revenue",
-        data: [10, 100, 50, 70, 80, 30, 40],
+        name: "Light_bulb",
+        data: [2, 10, 5, 7, 12, 4, 0],
       },
     ],
   },
+  
   {
-    title: "Expenses",
+    title: "Fan",
+    icon1:faFan,
     color: {
       backGround:
         "linear-gradient(rgb(248, 212, 154) -146.42%, rgb(255 202 113) -46.42%)",
@@ -84,11 +87,30 @@ export const cardsData = [
     },
     barValue: 60,
     value: "4,270",
-    png: UilClipboardAlt,
+    png: UilWind,
     series: [
       {
-        name: "Expenses",
-        data: [10, 25, 15, 30, 12, 15, 20],
+        name: 'Fan',
+        data: [5, 7, 2, 8, 7, 10, 0],
+      },
+    ],
+  },
+  {
+    title: "Door",
+    icon1:faDoorOpen,
+    icon2:faDoorClosed,
+   
+    color: {
+      backGround: "linear-gradient(180deg, #bb67ff 0%, #c484f3 100%)",
+      boxShadow: "0px 10px 20px 0px #e0c6f5",
+    },
+    barValue: 70,
+    value: "25,970",
+    png: UilLock,
+    series: [
+      {
+        name: 'Door',
+        data: [2, 1, 3, 2.2, 2, 1, 0]
       },
     ],
   },
@@ -98,20 +120,23 @@ export const cardsData = [
 export const UpdatesData = [
   {
     img: img1,
-    name: "Andrew Thomas",
-    noti: "has ordered Apple smart watch 2500mh battery.",
+    name: "User",
+    noti: "has opened the door",
     time: "25 seconds ago",
   },
   {
     img: img2,
-    name: "James Bond",
-    noti: "has received Samsung gadget for charging battery.",
+    name: "User",
+    noti: "has closed the fan",
     time: "30 minutes ago",
   },
   {
     img: img3,
-    name: "Iron Man",
-    noti: "has ordered Apple smart watch, samsung Gear 2500mh battery.",
+    name: "User",
+    noti: "has opened the fan",
     time: "2 hours ago",
   },
 ];
+
+
+
