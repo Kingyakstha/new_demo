@@ -33,7 +33,7 @@ function CompactCard({ param, setExpanded }) {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fetch("http://192.168.11.102:4000/api");
+        const response = await fetch("http://192.168.11.100:4000/api");
         const data = await response.json();
         setdata(data)
       } catch (err) {
