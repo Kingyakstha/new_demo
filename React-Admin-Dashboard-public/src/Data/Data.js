@@ -1,11 +1,7 @@
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faEnvelope,faDoorClosed,faDoorOpen,faLightbulb,faFan} from '@fortawesome/free-solid-svg-icons'
 // Sidebar imports
 import {
   UilEstate,
-  UilClipboardAlt,
-  UilUsersAlt,
-  UilPackage,
   UilChart,
 
   UilLock,

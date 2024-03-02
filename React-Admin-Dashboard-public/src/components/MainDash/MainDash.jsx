@@ -1,27 +1,3 @@
-// import React from "react";
-// import Cards from "../Cards/Cards";
-// import ApexCharts from 'apexcharts';
-// import Charts from "../Charts/Charts"
-
-
-// import "./MainDash.css";
-
-
-// const MainDash = () => {
-//   return (
-//     <div className="MainDash">
-//       <h1>Dashboard</h1>
-//       <Cards />
-//       {/* <h3>Recent commands</h3> */}
-//       <Charts />
-
-//     </div>
-//   );
-// };
-
-// export default MainDash;
-
-
 import React, { useEffect } from "react";
 import Cards from "../Cards/Cards";
 import ApexCharts from 'apexcharts';
@@ -103,7 +79,7 @@ const MainDash = () => {
     <div className="MainDash">
       <h1>Dashboard</h1>
       <Cards />
-      <div id="chart"></div> {/* Div container for the chart */}
+      <div id="chart"></div> 
     </div>
   );
 };

@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./Card.css";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faEnvelope,faDoorClosed,faDoorOpen} from '@fortawesome/free-solid-svg-icons'
+import {faEnvelope,faDoorClosed} from '@fortawesome/free-solid-svg-icons'
 import "react-circular-progressbar/dist/styles.css";
 import { motion, AnimateSharedLayout } from "framer-motion";
 import { UilTimes } from "@iconscout/react-unicons";
 import Chart from "react-apexcharts";
-import Switch from "../Switch/Switch";
-import axios from 'axios';
 
 
 // parent Card
