@@ -11,12 +11,17 @@ const MainDash = () => {
       series: [{
         name: "Light_bulb",
         data: [2, 10, 5, 7, 12, 4, 0],
-      }, {
+      }, 
+      {
         name: 'Fan',
         data: [5, 7, 2, 8, 7, 10, 0]
       }, {
         name: 'Door',
         data: [2, 1, 3, 2.2, 2, 1, 0]
+      },
+      {
+        name: "Led",
+        data: [3, 8, 1, 4, 10, 2, 0],
       }],
       chart: {
         type: 'bar',
@@ -65,7 +70,10 @@ const MainDash = () => {
       fill: {
         opacity: 1
       },
-      colors: ['#FF919D', '#F8D49A', '#BB67FF'],
+      colors: ['#FF919D',
+      '#F8D49A',
+      '#BB67FF',
+      '#82D3FF']
     };
     var chart = new ApexCharts(document.querySelector("#chart"), options);
     chart.render();

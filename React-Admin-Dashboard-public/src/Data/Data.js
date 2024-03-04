@@ -1,8 +1,11 @@
-import {faEnvelope,faDoorClosed,faDoorOpen,faLightbulb,faFan} from '@fortawesome/free-solid-svg-icons'
+import {faEnvelope,faDoorClosed,faDoorOpen,faLightbulb,faFan, faPowerOff, faCircle} from '@fortawesome/free-solid-svg-icons'
 // Sidebar imports
 import {
   UilEstate,
   UilChart,
+
+
+  UilLightbulbAlt,
 
   UilLock,
 
@@ -15,9 +18,9 @@ import {
 import { UilUsdSquare, UilMoneyWithdrawal } from "@iconscout/react-unicons";
 
 // Recent Card Imports
-import img1 from "../imgs/img1.png";
-import img2 from "../imgs/img2.png";
-import img3 from "../imgs/img3.png";
+import img1 from "../imgs/logo1.png";
+import img2 from "../imgs/logo1.png";
+import img3 from "../imgs/logo1.png";
 
 // Sidebar Data
 export const SidebarData = [
@@ -30,25 +33,6 @@ export const SidebarData = [
     heading: 'Analytics'
   },
 ];
-
-// Analytics Cards Data
-export const cardsdata= {
-  title: "Light_bulb",
-  icon1:faLightbulb,
-  color: {
-    backGround: "linear-gradient(180deg, #FF919D 0%, #FC929D 100%)",
-    boxShadow: "0px 10px 20px 0px #FDC0C7",
-  },
-  barValue: 80,
-  value: "14,270",
-  png: UilMoneyWithdrawal,
-  series: [
-    {
-      name: "Light_bulb",
-      data: [10, 100, 50, 70, 80, 30, 40],
-    },
-  ],
-};
 
 
 
@@ -71,6 +55,8 @@ export const cardsData = [
       },
     ],
   },
+
+ 
   
   {
     title: "Fan",
@@ -81,12 +67,27 @@ export const cardsData = [
       boxShadow: "0px 10px 20px 0px #F9D59B",
     },
     barValue: 60,
-    value: "4,270",
     png: UilWind,
     series: [
       {
         name: 'Fan',
         data: [5, 7, 2, 8, 7, 10, 0],
+      },
+    ],
+  },
+  {
+    title: "Led",
+    icon1:faCircle,
+    color: {
+      backGround: "#82D3FF",
+      boxShadow: "0px 10px 20px 0px #82D3FF",
+    },
+    barValue: 10,
+    png: UilBrightnessLow,
+    series: [
+      {
+        name: "Led",
+        data: [3, 8, 1, 4, 10, 2, 0],
       },
     ],
   },
@@ -100,7 +101,6 @@ export const cardsData = [
       boxShadow: "0px 10px 20px 0px #e0c6f5",
     },
     barValue: 70,
-    value: "25,970",
     png: UilLock,
     series: [
       {

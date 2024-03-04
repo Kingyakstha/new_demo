@@ -40,9 +40,12 @@
 .light-bulb-on {
   color: yellow; /* Change the color as needed */
 }
-.light-bulb-off {
-  color: grey; /* Change the color as needed */
+
+
+.led-on {
+  color: white; /* Change the color as needed */
 }
+
 
 .door-thing {
   color: black; /* Change the color as needed */

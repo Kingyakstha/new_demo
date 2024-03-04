@@ -33,7 +33,7 @@ function CompactCard({ param, setExpanded }) {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fetch("http://192.168.11.100:4000/api");
+        const response = await fetch("http://192.168.11.107:4000/api");
         const data = await response.json();
         setdata(data)
       } catch (err) {
@@ -74,12 +74,19 @@ function CompactCard({ param, setExpanded }) {
     >
       <div className="radialBar">
       <FontAwesomeIcon 
-  icon={param.title === "Door" && !dataa.Door ? faDoorClosed: param.icon1}
-  className={`svg-inline--fa ${param.title === "Fan" && isRotating ? "rotate" : ""} ${param.title === "Light_bulb" && dataa.Light_bulb ? "light-bulb-on" : "light-bulb-off"} ${param.title === "Light_bulb" && !dataa.Light_bulb ? "door-thing" : ""} ${param.title === "Fan"? "door-thing" : ""} ${param.title === "Door"? "door-thing" : ""}`}
+  icon={param.title === "Door" && !dataa.Door ? faDoorClosed : param.icon1}
+  className={`svg-inline--fa ${
+    param.title === "Fan" && isRotating ? "rotate" : ""
+  } ${
+    dataa.Led || dataa.Light_bulb ? "led-on" : "door-thing"
+  } ${
+    param.title === "Fan" || param.title === "Door" ? "door-thing" : ""
+  }`}
   style={{
     fontSize: '75px', 
   }}
 />
+
 
 
       <span>{param.title}</span>
@@ -90,6 +97,7 @@ function CompactCard({ param, setExpanded }) {
   {param.title === "Fan" ? (dataa.Fan ? "On" : "Off") : ""}
   {param.title === "Door" ? (dataa.Door ? "On" : "Off") : ""}
   {param.title === "Light_bulb" ? (dataa.Light_bulb ? "On" : "Off") : ""}
+  {param.title === "Led" ? (dataa.Led ? "On" : "Off") : ""}
 </span>
 
 <span></span>
